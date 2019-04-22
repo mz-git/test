@@ -9,10 +9,10 @@ public class StuScoreVO {
 
     private String name;
 
-    private String yuwen;
+    private String 语文;
 
-    private String shuxue;
+    private String 数学;
 
-    private String yingyu;
+    private String 英语;
 
 }

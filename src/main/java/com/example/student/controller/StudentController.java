@@ -82,10 +82,10 @@ public class StudentController {
         return studentService.getAvgStuSc();
     }
 
-    @PostMapping("/getCourseDetial")
+    @PostMapping("/getCourDetial")
     @ApiOperation(value = "根据科目id和科目名称查询科目详情")
     public ResultObject<List<CourVO>> getCourseDetial(@RequestBody CourseDetialDTO courseDetialDTO){
-        return studentService.getCourseDetial(courseDetialDTO);
+        return studentService.getCourDetial(courseDetialDTO);
     }
 
     @PostMapping("/getStuScore")

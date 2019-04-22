@@ -63,52 +63,53 @@
     </select>
     
     <select id="getStuByCourse" resultType="com.example.student.vo.StuByCourseVO">
-            SELECT
-	st.name
-FROM
-	score s
-	LEFT JOIN course c ON s.co_id = c.id
-	LEFT JOIN student st ON s.st_id = st.id
-WHERE
-	c.course=#{course}
+                    SELECT
+            st.name name
+        FROM
+            score s
+            LEFT JOIN course c ON s.co_id = c.id
+            LEFT JOIN student st ON s.st_id = st.id
+        WHERE
+            c.course=#{course}
     </select>
 
     <select id="getStusByCourse" resultType="com.example.student.vo.StusByCourseVO">
-        SELECT
-	c.id id,c.course course ,count(st.name) stus
-FROM
-	score s
-	LEFT JOIN course c ON s.co_id = c.id
-	LEFT JOIN student st on s.st_id = st.id
-	GROUP BY c.id
+                SELECT
+            c.id id,c.course course ,count(st.name) stus
+        FROM
+            score s
+            LEFT JOIN course c ON s.co_id = c.id
+            LEFT JOIN student st on s.st_id = st.id
+            GROUP BY c.id
     </select>
 
     <select id="getAvgSc" resultType="com.example.student.vo.AvgScVO">
-SELECT
-	c.id,
-	c.course,
-	avg( s.score ) avgSc
-FROM
-	score s
-	LEFT JOIN course c ON s.co_id = c.id
-	LEFT JOIN student st ON s.st_id = st.id
-GROUP BY
-	c.id
-    </select>
-    <select id="getAvgStuSc" resultType="com.example.student.vo.AvgStuScVO">
         SELECT
-	st.id id,
-	st.NAME name,
-	avg( s.score ) avgStuSc
-FROM
-	score s
-	LEFT JOIN course c ON s.co_id = c.id
-	LEFT JOIN student st ON s.st_id = st.id
-GROUP BY
-	st.id
+            c.id id,
+            c.course course,
+            avg( s.score ) avgSc
+        FROM
+            score s
+            LEFT JOIN course c ON s.co_id = c.id
+            LEFT JOIN student st ON s.st_id = st.id
+        GROUP BY
+            c.id
     </select>
 
-    <resultMap id="CourseDetial" type="com.example.student.vo.CourVO">
+    <select id="getAvgStuSc" resultType="com.example.student.vo.AvgStuScVO">
+                SELECT
+            st.id id,
+            st.NAME name,
+            avg( s.score ) avgStuSc
+        FROM
+            score s
+            LEFT JOIN course c ON s.co_id = c.id
+            LEFT JOIN student st ON s.st_id = st.id
+        GROUP BY
+            st.id
+    </select>
+
+    <resultMap id="CourDetial" type="com.example.student.vo.CourVO">
         <id column="id" property="cId"/>
         <result column="course" property="course"/>
         <collection property="students" ofType="com.example.student.vo.StuDetialVO">
@@ -117,17 +118,17 @@ GROUP BY
             <result column="score" property="score"/>
         </collection>
     </resultMap>
-    <select id="getCourseDetial" resultMap="CourseDetial">
-        SELECT
-	c.id ,
-	c.course,
-	st.id ,
-	st.NAME,
-	s.score
-FROM
-	score s
-	LEFT JOIN course c ON s.co_id = c.id
-	LEFT JOIN student st ON s.st_id = st.id
+    <select id="getCourDetial" resultMap="CourDetial">
+                SELECT
+            c.id cId,
+            c.course course,
+            st.id stId,
+            st.NAME name,
+            s.score score
+        FROM
+            score s
+            LEFT JOIN course c ON s.co_id = c.id
+            LEFT JOIN student st ON s.st_id = st.id
     <trim prefix="where" prefixOverrides="and|or">
         <if test="cNames!= null and cNames!=''">
              c.course like concat('%',#{cNames},'%')
@@ -143,17 +144,17 @@ FROM
     </select>
     
     <select id="getStuScore" resultType="com.example.student.vo.StuScoreVO">
-        SELECT
-	st.id id,
-	st.NAME name,
-	max( CASE WHEN c.course = '语文' THEN s.score ELSE 0 END ) yuwen,
-	max( CASE WHEN c.course = '数学' THEN s.score ELSE 0 END ) shuxue,
-	max( CASE WHEN c.course = '英语' THEN s.score ELSE 0 END ) yingyu
-FROM
-	score s
-	LEFT JOIN course c ON s.co_id = c.id
-	LEFT JOIN student st ON s.st_id = st.id
-GROUP BY
-	st.id
+                SELECT
+            st.id id,
+            st.NAME name,
+            max( CASE WHEN c.course = '语文' THEN s.score ELSE 0 END ) '语文',
+            max( CASE WHEN c.course = '数学' THEN s.score ELSE 0 END ) '数学',
+            max( CASE WHEN c.course = '英语' THEN s.score ELSE 0 END ) '英语'
+        FROM
+            score s
+            LEFT JOIN course c ON s.co_id = c.id
+            LEFT JOIN student st ON s.st_id = st.id
+        GROUP BY
+            st.id
     </select>
 </mapper>

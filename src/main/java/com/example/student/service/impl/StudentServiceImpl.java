@@ -76,9 +76,9 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
     }
 
     @Override
-    public ResultObject<List<CourVO>> getCourseDetial(CourseDetialDTO courseDetialDTO) {
-        List<CourVO> courseVOList=studentMapper.getCourseDetial(courseDetialDTO);
-        return ResultObject.success(courseVOList);
+    public ResultObject<List<CourVO>> getCourDetial(CourseDetialDTO courseDetialDTO) {
+        List<CourVO> courVOList=studentMapper.getCourDetial(courseDetialDTO);
+        return ResultObject.success(courVOList);
     }
 
     @Override

@@ -38,7 +38,7 @@ public interface StudentMapper extends BaseMapper<Student> {
 
     List<AvgStuScVO> getAvgStuSc();
 
-    List<CourVO> getCourseDetial(CourseDetialDTO courseDetialDTO);
+    List<CourVO> getCourDetial(CourseDetialDTO courseDetialDTO);
 
     List<StuScoreVO> getStuScore();
 

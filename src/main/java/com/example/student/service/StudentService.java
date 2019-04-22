@@ -35,7 +35,7 @@ public interface StudentService extends IService<Student> {
 
     ResultObject<List<AvgStuScVO>> getAvgStuSc();
 
-    ResultObject<List<CourVO>> getCourseDetial(CourseDetialDTO courseDetialDTO);
+    ResultObject<List<CourVO>> getCourDetial(CourseDetialDTO courseDetialDTO);
 
     ResultObject<List<StuScoreVO>> getStuScore();
 
