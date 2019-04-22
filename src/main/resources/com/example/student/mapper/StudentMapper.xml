@@ -113,16 +113,16 @@
         <id column="id" property="cId"/>
         <result column="course" property="course"/>
         <collection property="students" ofType="com.example.student.vo.StuDetialVO">
-            <id column="id" property="stId"/>
+            <id column="stid" property="stId"/>
             <result column="name" property="name"/>
             <result column="score" property="score"/>
         </collection>
     </resultMap>
     <select id="getCourDetial" resultMap="CourDetial">
                 SELECT
-            c.id cId,
+            c.id id,
             c.course course,
-            st.id stId,
+            st.id stid,
             st.NAME name,
             s.score score
         FROM

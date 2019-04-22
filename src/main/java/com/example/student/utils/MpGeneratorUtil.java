@@ -13,7 +13,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
  * @ClassName: CodeGeneration
  * @Description: 代码生成器
  * @author JMZ
- * @date 2018年1月25日 下午2:55:14
+ * @since 2019年4月20日
  */
 public class MpGeneratorUtil {
 
