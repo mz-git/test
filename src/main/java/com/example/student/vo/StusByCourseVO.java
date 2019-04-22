@@ -11,5 +11,4 @@ public class StusByCourseVO {
 
     private Integer stus;
 
-
 }

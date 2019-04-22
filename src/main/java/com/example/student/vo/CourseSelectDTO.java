@@ -10,10 +10,9 @@ import java.util.List;
 public class CourseSelectDTO implements Serializable {
 
     private static final long serialVersionUID = -234565432176543L;
-    
+
     @ApiModelProperty(value = "学生id")
     private List<Integer> tIds;
-
 
     @ApiModelProperty(value = "学生名称")
     private String sName;

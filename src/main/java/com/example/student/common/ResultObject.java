@@ -3,6 +3,7 @@ package com.example.student.common;
 import java.io.Serializable;
 
 public class ResultObject<T> implements Serializable {
+
     private static final long serialVersionUID = -5809782578272943999L;
 
     private String code;
@@ -11,17 +12,17 @@ public class ResultObject<T> implements Serializable {
 
     private T data;
 
-    public static ResultObject success(Object data){
+    public static ResultObject success(Object data) {
         ResultObject ro = new ResultObject();
-        ro.code="success";
-        ro.data=data;
+        ro.code = "success";
+        ro.data = data;
         return ro;
     }
 
-    public static ResultObject error(String msg){
+    public static ResultObject error(String msg) {
         ResultObject ro = new ResultObject();
-        ro.code="error";
-        ro.msg=msg;
+        ro.code = "error";
+        ro.msg = msg;
         return ro;
     }
 

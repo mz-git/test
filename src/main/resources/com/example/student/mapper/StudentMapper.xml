@@ -4,145 +4,30 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.example.student.entity.Student">
-        <id column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="sex" property="sex" />
-        <result column="age" property="age" />
-        <result column="birthday" property="birthday" />
-        <result column="address" property="address" />
-        <result column="phone" property="phone" />
-        <result column="create_time" property="createTime" />
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="birthday" property="birthday"/>
+        <result column="address" property="address"/>
+        <result column="phone" property="phone"/>
+        <result column="create_time" property="createTime"/>
     </resultMap>
     <select id="getList" resultType="com.example.student.entity.Student">
         select * from student
     </select>
 
-    <resultMap id="CourseSelect" type="com.example.student.vo.CourseSelectVO">
-        <id column="id" property="id"/>
-        <result column="name" property="name"/>
-        <collection property="courses" ofType="com.example.student.vo.CourseVO">
-            <result column="course" property="course"/>
-        </collection>
-    </resultMap>
-    <select id="getListByCourse" resultMap="CourseSelect">
-        SELECT
-        	st.id,
-            st.NAME,
-            co.course
-        FROM
-            student st
-            LEFT JOIN score sc ON st.id = sc.st_id
-            LEFT JOIN course co ON co.id = sc.co_id
-        where 1=1
-        <if test="sName!=null and sName != ''">
-            and st.NAME like CONCAT('%',#{sName},'%')
-        </if>
-        <if test="tIds != null and tIds.size() > 0">
-            and st.id in
-            <foreach collection="tIds" open="(" separator="," item="id" close=")">
-                #{id}
-            </foreach>
-        </if>
-    </select>
     <select id="getStuCourseNum" resultType="com.example.student.vo.StudentVO">
         SELECT
             stu.id stuId,
             stu.name stuName,
-            count(sc.id)  courseNum
+            count(sc.co_id)  courseNum
         FROM
             student stu
             LEFT JOIN score sc ON sc.st_id = stu.id
             group by stu.id,stu.name
     </select>
 
-    <select id="getDetialById" resultType="com.example.student.vo.StudentDetialVO">
-        SELECT id,name FROM student WHERE id = #{id}
-    </select>
-    <select id="getScoresByStuId" resultType="com.example.student.vo.CourseDetialVO">
-        SELECT c.course,s.score from course c left join score s on c.id = s.co_id WHERE s.st_id=#{stId}
-    </select>
-    
-    <select id="getStuByCourse" resultType="com.example.student.vo.StuByCourseVO">
-                    SELECT
-            st.name name
-        FROM
-            score s
-            LEFT JOIN course c ON s.co_id = c.id
-            LEFT JOIN student st ON s.st_id = st.id
-        WHERE
-            c.course=#{course}
-    </select>
-
-    <select id="getStusByCourse" resultType="com.example.student.vo.StusByCourseVO">
-                SELECT
-            c.id id,c.course course ,count(st.name) stus
-        FROM
-            score s
-            LEFT JOIN course c ON s.co_id = c.id
-            LEFT JOIN student st on s.st_id = st.id
-            GROUP BY c.id
-    </select>
-
-    <select id="getAvgSc" resultType="com.example.student.vo.AvgScVO">
-        SELECT
-            c.id id,
-            c.course course,
-            avg( s.score ) avgSc
-        FROM
-            score s
-            LEFT JOIN course c ON s.co_id = c.id
-            LEFT JOIN student st ON s.st_id = st.id
-        GROUP BY
-            c.id
-    </select>
-
-    <select id="getAvgStuSc" resultType="com.example.student.vo.AvgStuScVO">
-                SELECT
-            st.id id,
-            st.NAME name,
-            avg( s.score ) avgStuSc
-        FROM
-            score s
-            LEFT JOIN course c ON s.co_id = c.id
-            LEFT JOIN student st ON s.st_id = st.id
-        GROUP BY
-            st.id
-    </select>
-
-    <resultMap id="CourDetial" type="com.example.student.vo.CourVO">
-        <id column="id" property="cId"/>
-        <result column="course" property="course"/>
-        <collection property="students" ofType="com.example.student.vo.StuDetialVO">
-            <id column="stid" property="stId"/>
-            <result column="name" property="name"/>
-            <result column="score" property="score"/>
-        </collection>
-    </resultMap>
-    <select id="getCourDetial" resultMap="CourDetial">
-                SELECT
-            c.id id,
-            c.course course,
-            st.id stid,
-            st.NAME name,
-            s.score score
-        FROM
-            score s
-            LEFT JOIN course c ON s.co_id = c.id
-            LEFT JOIN student st ON s.st_id = st.id
-    <trim prefix="where" prefixOverrides="and|or">
-        <if test="cNames!= null and cNames!=''">
-             c.course like concat('%',#{cNames},'%')
-        </if>
-        <if test="cIds!=null and cIds.size()>0">
-          or c.id in
-          <foreach collection="cIds" open="(" separator="," item="cId" close=")">
-              #{cId}
-          </foreach>
-        </if>
-
-    </trim>
-    </select>
-    
     <select id="getStuScore" resultType="com.example.student.vo.StuScoreVO">
                 SELECT
             st.id id,

@@ -1,7 +1,5 @@
 package com.example.student.vo;
 
-import com.example.student.entity.Student;
-
 import java.util.List;
 
 public class StudentDetialVO {

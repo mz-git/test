@@ -2,17 +2,20 @@ package com.example.student.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author JMZ
  * @since 2019-04-20
  */
+@Data
 public class Student implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -119,14 +122,14 @@ public class Student implements Serializable {
     @Override
     public String toString() {
         return "Student{" +
-        ", id=" + id +
-        ", name=" + name +
-        ", sex=" + sex +
-        ", age=" + age +
-        ", birthday=" + birthday +
-        ", address=" + address +
-        ", phone=" + phone +
-        ", createTime=" + createTime +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                ", sex=" + sex +
+                ", age=" + age +
+                ", birthday=" + birthday +
+                ", address=" + address +
+                ", phone=" + phone +
+                ", createTime=" + createTime +
+                "}";
     }
 }

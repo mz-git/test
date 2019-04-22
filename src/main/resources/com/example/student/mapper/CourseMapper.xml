@@ -1,14 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.student.mapper.CourseMapper">
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.student.entity.Course">
+        <id column="id" property="id"/>
+        <result column="course" property="course"/>
+    </resultMap>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.student.mapper.CourseMapperXml"
-            prefHeight="400.0" prefWidth="600.0">
+    <resultMap id="CourseSelect" type="com.example.student.vo.CourseSelectVO">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <collection property="courses" ofType="com.example.student.vo.CourseVO">
+            <result column="course" property="course"/>
+        </collection>
+    </resultMap>
+    <select id="getListByCourse" resultMap="CourseSelect">
+        SELECT
+        st.id,
+        st.NAME,
+        co.course
+        FROM
+        student st
+        LEFT JOIN score sc ON st.id = sc.st_id
+        LEFT JOIN course co ON co.id = sc.co_id
+        where 1=1
+        <if test="sName!=null and sName != ''">
+            and st.NAME like CONCAT('%',#{sName},'%')
+        </if>
+        <if test="tIds != null and tIds.size() > 0">
+            and st.id in
+            <foreach collection="tIds" open="(" separator="," item="id" close=")">
+                #{id}
+            </foreach>
+        </if>
+    </select>
 
-</AnchorPane>
+    <select id="getStuByCourse" resultType="com.example.student.vo.StuByCourseVO">
+                    SELECT
+            st.name name
+        FROM
+            score s
+            LEFT JOIN course c ON s.co_id = c.id
+            LEFT JOIN student st ON s.st_id = st.id
+        WHERE
+            c.course=#{course}
+    </select>
+
+    <select id="getStusByCourse" resultType="com.example.student.vo.StusByCourseVO">
+                SELECT
+            c.id id,c.course course ,count(st.name) stus
+        FROM
+            score s
+            LEFT JOIN course c ON s.co_id = c.id
+            LEFT JOIN student st on s.st_id = st.id
+            GROUP BY c.id
+    </select>
+
+    <resultMap id="CourDetial" type="com.example.student.vo.CourVO">
+        <id column="id" property="cId"/>
+        <result column="course" property="course"/>
+        <collection property="students" ofType="com.example.student.vo.StuDetialVO">
+            <id column="stid" property="stId"/>
+            <result column="name" property="name"/>
+            <result column="score" property="score"/>
+        </collection>
+    </resultMap>
+    <select id="getCourDetial" resultMap="CourDetial">
+        SELECT
+        c.id id,
+        c.course course,
+        st.id stid,
+        st.NAME name,
+        s.score score
+        FROM
+        score s
+        LEFT JOIN course c ON s.co_id = c.id
+        LEFT JOIN student st ON s.st_id = st.id
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="cNames!= null and cNames!=''">
+                c.course like concat('%',#{cNames},'%')
+            </if>
+            <if test="cIds!=null and cIds.size()>0">
+                or c.id in
+                <foreach collection="cIds" open="(" separator="," item="cId" close=")">
+                    #{cId}
+                </foreach>
+            </if>
+
+        </trim>
+    </select>
+
+
+</mapper>

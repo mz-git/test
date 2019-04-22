@@ -9,19 +9,17 @@ import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
 /**
- *
+ * @author JMZ
  * @ClassName: CodeGeneration
  * @Description: 代码生成器
- * @author JMZ
  * @since 2019年4月20日
  */
 public class MpGeneratorUtil {
 
     /**
-     *
+     * @param args
      * @Title: main
      * @Description: 生成
-     * @param args
      */
     public static void main(String[] args) {
         AutoGenerator mpg = new AutoGenerator();

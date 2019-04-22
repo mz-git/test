@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS `student`;
-
 CREATE TABLE `student` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` varchar(255) DEFAULT NULL COMMENT '姓名',

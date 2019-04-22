@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.student.mapper.ScoreMapper">
+
+    <!--通用查询映射结果-->
+    <resultMap id="Base" type="com.example.student.entity.Score">
+        <id column="id" property="id"/>
+        <id column="stId" property="stId"/>
+        <id column="coId" property="coId"/>
+        <result column="score" property="score"/>
+    </resultMap>
+
+    <select id="getDetialById" resultType="com.example.student.vo.StudentDetialVO">
+        SELECT id,name FROM student WHERE id = #{id}
+    </select>
+    <select id="getScoresByStuId" resultType="com.example.student.vo.CourseDetialVO">
+        SELECT c.course,s.score from course c left join score s on c.id = s.co_id WHERE s.st_id=#{stId}
+    </select>
+
+    <select id="getAvgSc" resultType="com.example.student.vo.AvgScVO">
+        SELECT
+            c.id id,
+            c.course course,
+            avg( s.score ) avgSc
+        FROM
+            score s
+            LEFT JOIN course c ON s.co_id = c.id
+            LEFT JOIN student st ON s.st_id = st.id
+        GROUP BY
+            c.id
+    </select>
+
+    <select id="getAvgStuSc" resultType="com.example.student.vo.AvgStuScVO">
+                SELECT
+            st.id id,
+            st.NAME name,
+            avg( s.score ) avgStuSc
+        FROM
+            score s
+            LEFT JOIN course c ON s.co_id = c.id
+            LEFT JOIN student st ON s.st_id = st.id
+        GROUP BY
+            st.id
+    </select>
+
+</mapper>

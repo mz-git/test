@@ -63,6 +63,7 @@ mybatis-plus:
     #配置JdbcTypeForNull, oracle数据库必须配置
     jdbc-type-for-null: 'null'
 
+
 #开启mybatis的sql日志
 logging:
   level:
