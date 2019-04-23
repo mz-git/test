@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @ApiModel(value = "科目查询明细VO")
-public class CourseDetialDTO implements Serializable {
+public class CourseDetailDTO implements Serializable {
 
     private static final long serialVersionUID = -23498094546764L;
 
@@ -18,7 +18,6 @@ public class CourseDetialDTO implements Serializable {
 
     @ApiModelProperty(value = "科目名称")
     private String cNames;
-
 
 }
 

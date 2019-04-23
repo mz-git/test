@@ -15,6 +15,6 @@ public interface CourseMapper extends BaseMapper<Course> {
 
     List<StusByCourseVO> getStusByCourse();
 
-    List<CourVO> getCourDetial(CourseDetialDTO courseDetialDTO);
+    List<CourVO> getCourDetail(CourseDetailDTO courseDetailDTO);
 
 }

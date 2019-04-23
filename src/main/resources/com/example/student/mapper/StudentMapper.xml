@@ -13,6 +13,7 @@
         <result column="phone" property="phone"/>
         <result column="create_time" property="createTime"/>
     </resultMap>
+
     <select id="getList" resultType="com.example.student.entity.Student">
         select * from student
     </select>

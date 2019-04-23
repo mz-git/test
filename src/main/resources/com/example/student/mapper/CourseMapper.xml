@@ -57,16 +57,16 @@
             GROUP BY c.id
     </select>
 
-    <resultMap id="CourDetial" type="com.example.student.vo.CourVO">
+    <resultMap id="CourDetail" type="com.example.student.vo.CourVO">
         <id column="id" property="cId"/>
         <result column="course" property="course"/>
-        <collection property="students" ofType="com.example.student.vo.StuDetialVO">
+        <collection property="students" ofType="com.example.student.vo.StuDetailVO">
             <id column="stid" property="stId"/>
             <result column="name" property="name"/>
             <result column="score" property="score"/>
         </collection>
     </resultMap>
-    <select id="getCourDetial" resultMap="CourDetial">
+    <select id="getCourDetail" resultMap="CourDetail">
         SELECT
         c.id id,
         c.course course,

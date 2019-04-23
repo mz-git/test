@@ -15,5 +15,5 @@ public interface CourseService extends IService<Course> {
 
     ResultObject<List<StusByCourseVO>> getStusByCourse();
 
-    ResultObject<List<CourVO>> getCourDetial(CourseDetialDTO courseDetialDTO);
+    ResultObject<List<CourVO>> getCourDetail(CourseDetailDTO courseDetailDTO);
 }

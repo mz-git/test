@@ -10,10 +10,10 @@
         <result column="score" property="score"/>
     </resultMap>
 
-    <select id="getDetialById" resultType="com.example.student.vo.StudentDetialVO">
+    <select id="getDetailById" resultType="com.example.student.vo.StudentDetailVO">
         SELECT id,name FROM student WHERE id = #{id}
     </select>
-    <select id="getScoresByStuId" resultType="com.example.student.vo.CourseDetialVO">
+    <select id="getScoresByStuId" resultType="com.example.student.vo.CourseDetailVO">
         SELECT c.course,s.score from course c left join score s on c.id = s.co_id WHERE s.st_id=#{stId}
     </select>
 

@@ -8,11 +8,15 @@ import java.io.Serializable;
 
 @Data
 @ApiModel(value = "查询学生成绩")
-public class CourseVO implements Serializable {
+public class CourseDetailVO implements Serializable {
 
-    public static final long serialVersionUID = 7986564L;
+    private static final long serialVersionUID = 69834572960L;
 
-    @ApiModelProperty(value = "学生成绩")
+    @ApiModelProperty(value = "科目成绩")
+    private Double score;
+
+    @ApiModelProperty(value = "科目名称")
     private String course;
+
 
 }

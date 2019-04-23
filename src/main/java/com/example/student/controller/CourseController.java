@@ -24,9 +24,9 @@ public class CourseController {
         return courseService.getListByCourse(courseSelectDTO);
     }
 
-    @PostMapping("/getStuByCourse/{course}")
+    @GetMapping("/getStuByCourse/{course}")
     @ApiOperation(value = "查询学科下的学生")
-    public ResultObject<List<StuByCourseVO>> getStuByCourse(@RequestParam(value = "course", required = true) String course) {
+    public ResultObject<List<StuByCourseVO>> getStuByCourse(@PathVariable String course) {
         return courseService.getStuByCourse(course);
     }
 
@@ -36,9 +36,9 @@ public class CourseController {
         return courseService.getStusByCourse();
     }
 
-    @PostMapping("/getCourDetial")
+    @PostMapping("/getCourDetail")
     @ApiOperation(value = "根据科目id和科目名称查询科目详情")
-    public ResultObject<List<CourVO>> getCourseDetial(@RequestBody CourseDetialDTO courseDetialDTO) {
-        return courseService.getCourDetial(courseDetialDTO);
+    public ResultObject<List<CourVO>> getCourseDetail(@RequestBody CourseDetailDTO courseDetailDTO) {
+        return courseService.getCourDetail(courseDetailDTO);
     }
 }

@@ -7,8 +7,8 @@ import com.example.student.mapper.ScoreMapper;
 import com.example.student.service.ScoreService;
 import com.example.student.vo.AvgScVO;
 import com.example.student.vo.AvgStuScVO;
-import com.example.student.vo.CourseDetialVO;
-import com.example.student.vo.StudentDetialVO;
+import com.example.student.vo.CourseDetailVO;
+import com.example.student.vo.StudentDetailVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,10 +21,10 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
     private ScoreMapper scoreMapper;
 
     @Override
-    public ResultObject<StudentDetialVO> getDetialById(Integer id) {
-        StudentDetialVO st = scoreMapper.getDetialById(id);
-        List<CourseDetialVO> list = scoreMapper.getScoresByStuId(id);
-        st.setCourseDetial(list);
+    public ResultObject<StudentDetailVO> getDetailById(Integer id) {
+        StudentDetailVO st = scoreMapper.getDetailById(id);
+        List<CourseDetailVO> list = scoreMapper.getScoresByStuId(id);
+        st.setCourseDetail(list);
         return ResultObject.success(st);
     }
 

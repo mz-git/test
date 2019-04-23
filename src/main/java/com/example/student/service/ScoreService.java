@@ -5,13 +5,13 @@ import com.example.student.common.ResultObject;
 import com.example.student.entity.Score;
 import com.example.student.vo.AvgScVO;
 import com.example.student.vo.AvgStuScVO;
-import com.example.student.vo.StudentDetialVO;
+import com.example.student.vo.StudentDetailVO;
 
 import java.util.List;
 
 public interface ScoreService extends IService<Score> {
 
-    ResultObject<StudentDetialVO> getDetialById(Integer id);
+    ResultObject<StudentDetailVO> getDetailById(Integer id);
 
     ResultObject<List<AvgScVO>> getAvgSc();
 
