@@ -22,7 +22,7 @@ public class ScoreController {
 
     @GetMapping("/getDetailById/{id}")
     @ApiOperation(value = "根据学生id查询学生成绩")
-    public ResultObject<StudentDetailVO> getDetailById(@PathVariable("id") Integer id) {
+    public ResultObject<StudentDetailVO> getDetailById(@PathVariable("id") Long id) {
         return scoreService.getDetailById(id);
     }
 

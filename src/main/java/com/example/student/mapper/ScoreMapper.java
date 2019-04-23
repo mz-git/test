@@ -12,9 +12,9 @@ import java.util.List;
 
 public interface ScoreMapper extends BaseMapper<Score> {
 
-    StudentDetailVO getDetailById(@Param("id") Integer id);
+    StudentDetailVO getDetailById(@Param("id") Long id);
 
-    List<CourseDetailVO> getScoresByStuId(@Param("stId") Integer stId);
+    List<CourseDetailVO> getScoresByStuId(@Param("stId") Long stId);
 
     List<AvgScVO> getAvgSc();
 

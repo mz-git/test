@@ -21,7 +21,7 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
     private ScoreMapper scoreMapper;
 
     @Override
-    public ResultObject<StudentDetailVO> getDetailById(Integer id) {
+    public ResultObject<StudentDetailVO> getDetailById(Long id) {
         StudentDetailVO st = scoreMapper.getDetailById(id);
         List<CourseDetailVO> list = scoreMapper.getScoresByStuId(id);
         st.setCourseDetail(list);

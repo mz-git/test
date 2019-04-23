@@ -27,6 +27,6 @@ public class StudentVO implements Serializable {
     private String stuName;
 
     @ApiModelProperty(value = "选课数量")
-    private Integer courseNum;
+    private Long courseNum;
 
 }

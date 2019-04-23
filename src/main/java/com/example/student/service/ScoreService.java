@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface ScoreService extends IService<Score> {
 
-    ResultObject<StudentDetailVO> getDetailById(Integer id);
+    ResultObject<StudentDetailVO> getDetailById(Long id);
 
     ResultObject<List<AvgScVO>> getAvgSc();
 
