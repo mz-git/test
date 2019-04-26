@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.student.mapper.OrderInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.student.entity.OrderInfo">
+        <id column="id" property="id" />
+        <result column="order_num" property="orderNum" />
+        <result column="send_name" property="sendName" />
+        <result column="rece_name" property="receName" />
+        <result column="rece_addr" property="receAddr" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+</mapper>
