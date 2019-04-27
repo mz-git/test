@@ -26,3 +26,34 @@ CREATE TABLE `course` (
   `course` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+==========================================================
+CREATE TABLE `order_path` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `order_id` bigint(20) DEFAULT NULL COMMENT '订单id',
+  `oper_status` bigint(20) DEFAULT NULL COMMENT '操作状态码',
+  `oper_name` varchar(255) DEFAULT NULL COMMENT '操作人姓名',
+  `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
+  `oper_desc` varchar(255) DEFAULT NULL COMMENT '操作描述信息',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `order_oper` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `order_id` bigint(20) DEFAULT NULL COMMENT '订单id',
+  `send_time` datetime DEFAULT NULL COMMENT '派件时间',
+  `sign_time` datetime DEFAULT NULL COMMENT '签收时间',
+  `sign_name` varchar(255) DEFAULT NULL COMMENT '签收人姓名',
+  `order_status` bigint(20) DEFAULT NULL COMMENT '订单状态',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `order_path` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `order_id` bigint(20) DEFAULT NULL COMMENT '订单id',
+  `oper_status` bigint(20) DEFAULT NULL COMMENT '操作状态码',
+  `oper_name` varchar(255) DEFAULT NULL COMMENT '操作人姓名',
+  `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
+  `oper_desc` varchar(255) DEFAULT NULL COMMENT '操作描述信息',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
