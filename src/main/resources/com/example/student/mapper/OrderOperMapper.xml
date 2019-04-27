@@ -11,5 +11,10 @@
         <result column="sign_name" property="signName" />
         <result column="order_status" property="orderStatus" />
     </resultMap>
+    
+    <select id="getOrderOper" resultMap="BaseResultMap">
+        select * from order_oper where order_id=#{orderId}
+    </select>
+
 
 </mapper>

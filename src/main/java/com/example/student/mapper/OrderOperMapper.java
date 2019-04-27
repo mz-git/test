@@ -13,4 +13,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface OrderOperMapper extends BaseMapper<OrderOper> {
 
+    void updateByOrderId(Long id);
+
+    OrderOper getOrderOper(Long orderId);
 }

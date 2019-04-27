@@ -1,7 +1,11 @@
 package com.example.student.service;
 
+import com.example.student.common.ResultObject;
+import com.example.student.entity.OrderInfo;
 import com.example.student.entity.OrderPath;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface OrderPathService extends IService<OrderPath> {
 
+    ResultObject<OrderInfo> createOrder(OrderInfo orderInfo);
 }

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -41,7 +42,7 @@ public class OrderPath implements Serializable {
      * 操作时间
      */
     @TableField("oper_time")
-    private LocalDateTime operTime;
+    private Date operTime;
     /**
      * 操作描述信息
      */
@@ -81,11 +82,11 @@ public class OrderPath implements Serializable {
         this.operName = operName;
     }
 
-    public LocalDateTime getOperTime() {
+    public Date getOperTime() {
         return operTime;
     }
 
-    public void setOperTime(LocalDateTime operTime) {
+    public void setOperTime(Date operTime) {
         this.operTime = operTime;
     }
 

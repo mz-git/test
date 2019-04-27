@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -31,12 +32,12 @@ public class OrderOper implements Serializable {
      * 派件时间
      */
     @TableField("send_time")
-    private LocalDateTime sendTime;
+    private Date sendTime;
     /**
      * 签收时间
      */
     @TableField("sign_time")
-    private LocalDateTime signTime;
+    private Date signTime;
     /**
      * 签收人姓名
      */
@@ -65,19 +66,19 @@ public class OrderOper implements Serializable {
         this.orderId = orderId;
     }
 
-    public LocalDateTime getSendTime() {
+    public Date getSendTime() {
         return sendTime;
     }
 
-    public void setSendTime(LocalDateTime sendTime) {
+    public void setSendTime(Date sendTime) {
         this.sendTime = sendTime;
     }
 
-    public LocalDateTime getSignTime() {
+    public Date getSignTime() {
         return signTime;
     }
 
-    public void setSignTime(LocalDateTime signTime) {
+    public void setSignTime(Date signTime) {
         this.signTime = signTime;
     }
 
