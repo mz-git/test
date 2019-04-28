@@ -1,3 +1,4 @@
+==================student=======================
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -27,7 +28,7 @@ CREATE TABLE `course` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
-==========================================================
+===================order=======================================
 CREATE TABLE `order_path` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `order_id` bigint(20) DEFAULT NULL COMMENT '订单id',
@@ -57,3 +58,30 @@ CREATE TABLE `order_path` (
   `oper_desc` varchar(255) DEFAULT NULL COMMENT '操作描述信息',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+=============zentao==========================
+CREATE TABLE `zt_task` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `title` varchar(255) DEFAULT NULL COMMENT '标题',
+  `desc` varchar(255) DEFAULT NULL COMMENT '描述',
+  `revi` varchar(255) DEFAULT NULL COMMENT '评审人',
+  `crea` varchar(255) DEFAULT NULL COMMENT '创建人',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `zt_oper` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `task_id` bigint(20) DEFAULT NULL COMMENT '任务表id',
+  `status` varchar(255) DEFAULT NULL COMMENT '状态码',
+  `revi_time` datetime DEFAULT NULL COMMENT '评审时间',
+  `clos_time` datetime DEFAULT NULL COMMENT '关闭时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `zt_record` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `task_id` bigint(20) DEFAULT NULL COMMENT '任务表id',
+  `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
+  `oper_desc` varchar(255) DEFAULT NULL COMMENT '操作描述',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
