@@ -10,5 +10,9 @@
         <result column="revi_time" property="reviTime" />
         <result column="clos_time" property="closTime" />
     </resultMap>
+    
+    <select id="getOperByTaskId" resultMap="BaseResultMap">
+        select * from zt_oper where task_id=#{taskId}
+    </select>
 
 </mapper>

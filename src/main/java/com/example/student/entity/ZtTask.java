@@ -30,7 +30,7 @@ public class ZtTask implements Serializable {
     /**
      * 描述
      */
-    private String desc;
+    private String des;
     /**
      * 评审人
      */
@@ -57,12 +57,12 @@ public class ZtTask implements Serializable {
         this.title = title;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDes() {
+        return des;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDes(String des) {
+        this.des = des;
     }
 
     public String getRevi() {
@@ -86,7 +86,7 @@ public class ZtTask implements Serializable {
         return "ZtTask{" +
         ", id=" + id +
         ", title=" + title +
-        ", desc=" + desc +
+        ", des=" + des +
         ", revi=" + revi +
         ", crea=" + crea +
         "}";

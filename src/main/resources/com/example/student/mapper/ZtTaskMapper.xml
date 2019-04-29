@@ -6,9 +6,13 @@
     <resultMap id="BaseResultMap" type="com.example.student.entity.ZtTask">
         <id column="id" property="id" />
         <result column="title" property="title" />
-        <result column="desc" property="desc" />
+        <result column="des" property="des" />
         <result column="revi" property="revi" />
         <result column="crea" property="crea" />
     </resultMap>
+    
+    <select id="getTaskById" resultMap="BaseResultMap">
+        select * from zt_task where id=#{id}
+    </select>
 
 </mapper>
