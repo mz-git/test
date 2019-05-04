@@ -41,4 +41,8 @@ public class CourseController {
     public ResultObject<List<CourVO>> getCourseDetail(@RequestBody CourseDetailDTO courseDetailDTO) {
         return courseService.getCourDetail(courseDetailDTO);
     }
+
+    public static void main(String[] args) {
+        System.out.println("sag");
+    }
 }
