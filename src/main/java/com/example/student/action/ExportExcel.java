@@ -3,7 +3,6 @@ package com.example.student.action;
 /**
  * EXCEL报表工具类.
  *
- * @author caoyb
  * @version $Revision:$
  */
 
@@ -22,9 +21,9 @@ public class ExportExcel {
     private HSSFSheet sheet = null;
 
     /**
-     * 31      * @param wb
-     * 32      * @param sheet
-     * 33
+     *      * @param wb
+     *       * @param sheet
+     *
      */
     public ExportExcel(HSSFWorkbook wb, HSSFSheet sheet) {
         super();
@@ -33,47 +32,44 @@ public class ExportExcel {
     }
 
     /**
-     * 41      * @return the sheet
-     * 42
+     *       * @return the sheet
      */
     public HSSFSheet getSheet() {
         return sheet;
     }
 
     /**
-     * 48      * @param sheet
-     * 49      *            the sheet to set
-     * 50
+     *       * @param sheet
+     *       *            the sheet to set
      */
     public void setSheet(HSSFSheet sheet) {
         this.sheet = sheet;
     }
 
     /**
-     * 56      *@return the wb
-     * 57
+     *       *@return the wb
      */
     public HSSFWorkbook getWb() {
         return wb;
     }
 
     /**
-     * 63      * @param wb
-     * 64      *            the wb to set
-     * 65
+     *       * @param wb
+     *       *            the wb to set
+     *
      */
     public void setWb(HSSFWorkbook wb) {
         this.wb = wb;
     }
 
     /**
-     * 71      * 创建通用EXCEL头部
-     * 72      *
-     * 73      * @param headString
-     * 74      *            头部显示的字符
-     * 75      * @param colSum
-     * 76      *            该报表的列数
-     * 77
+     *       * 创建通用EXCEL头部
+     *       *
+     *       * @param headString
+     *       *            头部显示的字符
+     *       * @param colSum
+     *       *            该报表的列数
+     *
      */
     public void createNormalHead(String headString, int colSum) {
 
@@ -107,13 +103,13 @@ public class ExportExcel {
     }
 
     /**
-     * 110      * 创建通用报表第二行
-     * 111      *
-     * 112      * @param params
-     * 113      *            统计条件数组
-     * 114      * @param colSum
-     * 115      *            需要合并到的列索引
-     * 116
+     *       * 创建通用报表第二行
+     *       *
+     *       * @param params
+     *       *            统计条件数组
+     *       * @param colSum
+     *       *            需要合并到的列索引
+     *
      */
 
 
@@ -148,11 +144,11 @@ public class ExportExcel {
 
 
     /**
-     * 147      * 设置报表标题
-     * 148      *
-     * 149      * @param columHeader
-     * 150      *            标题字符串数组
-     * 151
+     *       * 设置报表标题
+     *       *
+     *       * @param columHeader
+     *       *            标题字符串数组
+     *
      */
     public void createColumHeader(String[] columHeader) {
 
@@ -175,15 +171,15 @@ public class ExportExcel {
         cellStyle.setFont(font);
 
                  /*
-173          * cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN); // 设置单无格的边框为粗体
-174          * cellStyle.setBottomBorderColor(HSSFColor.BLACK.index); // 设置单元格的边框颜色．
-175          * cellStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);
-176          * cellStyle.setLeftBorderColor(HSSFColor.BLACK.index);
-177          * cellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
-178          * cellStyle.setRightBorderColor(HSSFColor.BLACK.index);
-179          * cellStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);
-180          * cellStyle.setTopBorderColor(HSSFColor.BLACK.index);
-181          */
+          * cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN); // 设置单无格的边框为粗体
+          * cellStyle.setBottomBorderColor(HSSFColor.BLACK.index); // 设置单元格的边框颜色．
+          * cellStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+          * cellStyle.setLeftBorderColor(HSSFColor.BLACK.index);
+          * cellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
+          * cellStyle.setRightBorderColor(HSSFColor.BLACK.index);
+          * cellStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);
+          * cellStyle.setTopBorderColor(HSSFColor.BLACK.index);
+          */
 
         // 设置单元格背景色
         cellStyle.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
@@ -201,19 +197,19 @@ public class ExportExcel {
     }
 
     /**
-     * 199      * 创建内容单元格
-     * 200      *
-     * 201      * @param wb
-     * 202      *            HSSFWorkbook
-     * 203      * @param row
-     * 204      *            HSSFRow
-     * 205      * @param col
-     * 206      *            short型的列索引
-     * 207      * @param align
-     * 208      *            对齐方式
-     * 209      * @param val
-     * 210      *            列值
-     * 211
+     *       * 创建内容单元格
+     *       *
+     *       * @param wb
+     *       *            HSSFWorkbook
+     *       * @param row
+     *       *            HSSFRow
+     *       * @param col
+     *       *            short型的列索引
+     *       * @param align
+     *       *            对齐方式
+     *       * @param val
+     *       *            列值
+     *
      */
     public void cteateCell(HSSFWorkbook wb, HSSFRow row, int col, short align,
                            String val) {
@@ -226,12 +222,12 @@ public class ExportExcel {
     }
 
     /**
-     * 223      * 创建合计行
-     * 224      *
-     * 225      * @param colSum
-     * 226      *            需要合并到的列索引
-     * 227      * @param cellValue
-     * 228
+     *       * 创建合计行
+     *       *
+     *       * @param colSum
+     *       *            需要合并到的列索引
+     *       * @param cellValue
+     *
      */
     public void createLastSumRow(int colSum, String[] cellValue) {
 
@@ -265,11 +261,11 @@ public class ExportExcel {
     }
 
     /**
-     * 261      * 输入EXCEL文件
-     * 262      *
-     * 263      * @param fileName
-     * 264      *            文件名
-     * 265
+     *       * 输入EXCEL文件
+     *       *
+     *       * @param fileName
+     *       *            文件名
+     *
      */
     public void outputExcel(String fileName) {
         FileOutputStream fos = null;

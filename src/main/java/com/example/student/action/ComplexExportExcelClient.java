@@ -9,8 +9,6 @@ import java.util.List;
 
 /**
  * 拒绝件报表生成类.
- *
- * @author caoyb
  * @version $Revision:$
  */
 
