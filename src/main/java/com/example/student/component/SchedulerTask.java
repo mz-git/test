@@ -14,7 +14,7 @@ public class SchedulerTask {
      * @Param
      * @return void
      **/
-    @Scheduled(cron = "*/6 * * * * ?")
+    @Scheduled(cron = "0 30 1 1 * ?")
     private void process(){
         System.out.println("this is scheduler task running " + (count++));
     }

@@ -27,6 +27,7 @@ public class ScoreController {
     }
 
     @PostMapping("/getAvgSc")
+//    @ResponseBody
     @ApiOperation(value = "查询学科平均分")
     public ResultObject<List<AvgScVO>> getAvgSc() {
         return scoreService.getAvgSc();
